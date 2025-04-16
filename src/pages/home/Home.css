@@ -1,0 +1,126 @@
+/* home.css */
+
+.container {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #2563eb, #1e3a8a);
+    color: white;
+    font-family: sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+  }
+  
+  .menu-icon {
+    width: 24px;
+    height: 24px;
+    color: white;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .banner-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .banner {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .icon-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: -40px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .icon {
+    width: 32px;
+    height: 32px;
+    margin-top: 30px;
+    color: white;
+
+  }
+  
+  .logo-circle {
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 3px solid #1e3a8a;
+    z-index: 3;
+  }
+  
+  .logo-img {
+    width: 60%;
+    height: auto;
+  }
+
+  .title {
+    display: block;
+    text-align: center;
+    margin-top: 20px; /* Ajuste a margem conforme necessário */
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribui os cards igualmente */
+    gap: 20px;
+    padding: 20px;
+    max-width: 300px; /* Limita a largura total para manter 2 colunas com espaçamento */
+    margin: 0 auto; /* Centraliza a grade na tela */
+  }
+  
+  .card {
+    width: 100px;
+    height: 100px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card:nth-child(odd) {
+    background-color: #f0f0f0; /* Fundo diferente para os cards ímpares */
+  }
+  
+  .card:nth-child(even) {
+    background-color: #e0e0e0; /* Fundo diferente para os cards pares */
+  }
+  
