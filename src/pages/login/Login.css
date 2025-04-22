@@ -63,3 +63,22 @@ html, body, #root {
 .signup-link a:hover {
   text-decoration: underline;
 }
+
+/* Para dispositivos móveis (tela pequena) */
+@media (max-width: 768px) {
+  .login-container {
+    align-items: flex-start; /* Alinha ao topo */
+    padding-top: 2rem; /* Ajuste de espaçamento superior */
+  }
+
+  .login-form {
+    width: 100%; /* Certifique-se que o formulário ocupe toda a largura disponível */
+    padding: 1rem; /* Ajuste o padding para caber melhor na tela */
+    box-shadow: none; /* Remova a sombra, se preferir */
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 0.9rem; /* Diminui o tamanho da fonte para se ajustar melhor */
+  }
+}

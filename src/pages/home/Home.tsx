@@ -1,67 +1,26 @@
-import React from 'react';
-import './home.css';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import IconButton from '@mui/material/IconButton';
+import React from "react";
+import { useLoja } from "../../context/LojaContext"; // Importando o hook para acessar o contexto da loja
 
-export default function Home() {
+const Home: React.FC = () => {
+  const { loja } = useLoja(); // Acessando o contexto da loja
+
   return (
-    <div className="container">
-      {/* TOPO */}
-      <header className="header">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="menu-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <line x1="3" y1="12" x2="21" y2="12" />
-          <line x1="3" y1="6" x2="21" y2="6" />
-          <line x1="3" y1="18" x2="21" y2="18" />
-        </svg>
-        <div style={{ width: 24 }} />
-      </header>
-
-      {/* BANNER */}
-      <div className="banner-container">
-        <img
-          src="/banner.png" // Substitua pela URL ou caminho local correto
-          alt="Banner de propaganda"
-          className="banner"
-        />
-      </div>
-
-      {/* LINHA DE ÍCONES */}
-      <div className="icon-row">
-        <WhatsAppIcon className="icon" />
-        <LocationOnIcon className="icon" />
-        <div className="logo-circle">
-          <img src="/logo.png" alt="Logo" className="logo-img" />
+    <div>
+      {/* Verifica se a loja foi carregada, se não, exibe uma mensagem de carregamento */}
+      {loja ? (
+        <div>
+          <h1>{loja.nome}</h1>
+          <p>{loja.cidade}</p>
+          <p>{loja.rua}, {loja.numero}</p>
+          <p>{loja.bairro} - {loja.cep}</p>
+          <p>Telefone: {loja.telefone}</p>
+          <p>Status: {loja.status === 1 ? 'Ativa' : 'Inativa'}</p>
         </div>
-        <FacebookIcon className="icon" />
-        <InstagramIcon className="icon" />
-      </div>
-
-      {/* TÍTULO CENTRALIZADO */}
-      <span className="title">Meu App</span>
-
-      {/* BOTOES EM ESTILO CARD */}
-      <div className="card-container">
-        <div className="card">Meu Pets</div>
-        <div className="card">Agenda</div>
-        <div className="card">Produtos</div>
-        <div className="card">Serviços</div>
-        <div className="card">Promoções</div>
-        <div className="card">Bem-estar</div>
-      </div>
+      ) : (
+        <p>Carregando a loja...</p> // Mensagem exibida enquanto os dados estão sendo carregados
+      )}
     </div>
   );
-}
+};
 
-
+export default Home;
