@@ -22,11 +22,10 @@ const Login: React.FC = () => {
     e.preventDefault();
     try {
       const result = await login(email, senha); 
-      console.log("Token recebido:", result.token);
-      
+      console.log("Token recebido:", result.token);      
       // Salva o token no contexto
       setToken(result.token);
-
+      
       navigate("/home"); // Redireciona para a Home
     } catch (error: any) {
       alert(error.message);

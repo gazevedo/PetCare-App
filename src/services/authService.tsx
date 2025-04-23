@@ -17,8 +17,8 @@ export const login = async (email: string, senha: string) => {
       throw new Error("E-mail ou senha inválidos");
     }
 
-    const data = await response.json();
-    return { token: data.token }; // ajusta conforme a estrutura da sua API
+    const token = await response.json(); // token direto
+    return { token };
   } catch (error) {
     throw error;
   }
