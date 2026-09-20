@@ -30,7 +30,7 @@ export const criarUsuario = async (usuario: Usuario) => {
   // Remove campos vazios ou nulos
   const usuarioLimpo = Object.fromEntries(
     Object.entries(usuarioCompleto).filter(
-      ([_, value]) => value != null && value !== ""
+      (entry) => entry[1] != null && entry[1] !== ""
     )
   );
 
