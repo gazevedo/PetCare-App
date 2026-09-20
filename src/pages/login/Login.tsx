@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { login } from "../../services/AuthService";
+import { login } from "../../services/authService";
 import { AuthContext } from "../../context/AuthContext"; // Importa o contexto
 import { useNavigate } from "react-router-dom"; // Para navegação entre páginas
 import "./Login.css";
@@ -27,8 +27,8 @@ const Login: React.FC = () => {
       setToken(result.token);
       
       navigate("/home"); // Redireciona para a Home
-    } catch (error: any) {
-      alert(error.message);
+    } catch (error: unknown) {
+      alert(error instanceof Error ? error.message : "Não foi possível entrar.");
     }
   };
 

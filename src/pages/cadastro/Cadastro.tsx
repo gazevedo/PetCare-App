@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { criarUsuario } from "../../services/UsuarioService"; // ajuste se necessário 
-import { useUsuario } from "../../context/UsuarioContext"; // Importando o contexto
 
 const Cadastro: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -10,8 +9,6 @@ const Cadastro: React.FC = () => {
   const [telefone, setTelefone] = useState("");
 
   const navigate = useNavigate();
-  const { setUsuario } = useUsuario(); // Desestruturando a função setUsuario do contexto
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -22,11 +19,11 @@ const Cadastro: React.FC = () => {
     };
 
     const usuario = Object.fromEntries(
-      Object.entries(rawUsuario).filter(([_, value]) => value !== "")
+      Object.entries(rawUsuario).filter((entry) => entry[1] !== "")
     );
 
     try {
-      const resposta = await criarUsuario(usuario); 
+      await criarUsuario(usuario);
       navigate("/"); // Redireciona após o cadastro
     } catch (error) {
       console.error("Erro ao cadastrar usuário:", error);
