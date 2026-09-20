@@ -1,5 +1,5 @@
 // src/context/UsuarioContext.tsx
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useContext } from "react";
 
 // Defina a interface Usuario aqui
 export interface Usuario {
